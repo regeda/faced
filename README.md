@@ -18,6 +18,7 @@ $ go get -u github.com/regeda/faced
 ### Development
 
 *API Spec*
+
 Run `go generate` to get "go" code if `swagger.yml` changed.
 
 Run the web server:
@@ -26,7 +27,7 @@ $ ./run.sh
 ```
 or
 ```sh
-go run cmd/face-detection-app-server/main.go \
+$ go run cmd/face-detection-app-server/main.go \
   --port=5555 \
   --pigo-cascade-file=internal/pigo/cascade/facefinder \
   --pigo-puploc-file=internal/pigo/cascade/puploc \
@@ -37,6 +38,7 @@ go run cmd/face-detection-app-server/main.go \
 Then navigate to http://127.0.0.1:5555/docs in your preferred browser.
 
 *Tests*
+
 Put your commands in `generate.go` file if you require mocks for tests. Then run `go generate`.
 
 ### Deployment
@@ -45,4 +47,4 @@ Face Detection Web API is a cloud-enabled web service. No 3d-party APIs required
 
 ### Optimizations
 
-To reduce CPU utilization of the server, the web service can be run behind a cached reverse proxy (aka Squid, Varnish, Nginx). Because of the HTTP handler for faces detection is implemented as HTTP GET method and the detection algorithm is based on a static data model.
+To reduce CPU utilization of the server, the web service can be run behind a caching reverse proxy (aka Squid, Varnish, Nginx). Because of the HTTP handler for faces detection is implemented as HTTP GET method and the detection algorithm is based on a static data model.
