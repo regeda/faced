@@ -133,7 +133,7 @@ func (d *Detector) Detect(r io.Reader) ([]*models.Face, error) {
 			}
 			for _, mouth := range mouthCascade {
 				for _, flpc := range d.flpcs[mouth] {
-					flp := flpc.FindLandmarkPoints(leftEye, rightEye, params.ImageParams, perturb, false)
+					flp := flpc.GetLandmarkPoint(leftEye, rightEye, params.ImageParams, perturb, false)
 					face.Mouth = &models.Point{
 						X: int64(flp.Col),
 						Y: int64(flp.Row),
